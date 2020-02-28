@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-onda',
@@ -6,8 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./onda.component.css']
 })
 export class OndaComponent implements OnInit {
-
-  constructor() { }
+  public userId;
+  constructor(private route: ActivatedRoute) { 
+    this.route.params.subscribe(params => this.userId = params['id']);
+  }
 
   ngOnInit() {
   }
