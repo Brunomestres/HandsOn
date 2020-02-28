@@ -1,18 +1,16 @@
 <table class="table">
     <thead>
       <tr>
-        <th scope="col">#</th>
-        <th scope="col">First</th>
-        <th scope="col">Last</th>
-        <th scope="col">Handle</th>
+        <th scope="col">Número</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Ação</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
+      <tr *ngFor="let surfista of surfistas">
+        <th scope="row">{{ surfista.id}}</th>
+        <td> {{ surfista.nome}}</td>
+        <td><button type="button" class="btn btn-danger" (click)="onDelete(surfista.id)">Excluir</button></td>
       </tr>
     </tbody>
   </table>
@@ -26,17 +24,17 @@
     </button>
   </div>
   <div class="modal-body">
-    <form>
+    <form [formGroup]="form">
       <div class="form-group">
         <label for="">Nome</label>
-        <input type="email" class="form-control" id="" aria-describedby="">
+        <input formControlName="nome" type="email" class="form-control" id="" aria-describedby="">
       </div>
       <div class="form-group">
         <label for="">País</label>
-        <input type="password" class="form-control" id="">
+        <input formControlName="pais" type="text" class="form-control" id="">
       </div>
       
-      <button type="submit" class="btn btn-primary">Cadastrar</button>
+      <button type="submit" (click)="onSubmit()" class="btn btn-primary">Cadastrar</button>
     </form>
   </div>
 </ng-template>

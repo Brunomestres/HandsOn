@@ -14,7 +14,7 @@ class CreateSurfistasTable extends Migration
     public function up()
     {
         Schema::create('surfistas', function (Blueprint $table) {
-            $table->bigIncrements('numero');
+            $table->bigIncrements('id');
             $table->string('nome');
             $table->string('pais');
             $table->bigInteger('id_baterias')->unsigned()->nullable(true);

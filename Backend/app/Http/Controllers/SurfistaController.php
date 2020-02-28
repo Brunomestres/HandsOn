@@ -17,7 +17,9 @@ class SurfistaController extends Controller
      */
     public function index()
     {
-        
+        $result = Surfista::all();
+
+        return response()->json($result);
     }
 
     /**
@@ -27,7 +29,7 @@ class SurfistaController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -91,8 +93,8 @@ class SurfistaController extends Controller
      * @param  \App\Surfista  $surfista
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Surfista $surfista)
+    public function destroy($id)
     {
-        //
+        Surfista::destroy($id);
     }
 }

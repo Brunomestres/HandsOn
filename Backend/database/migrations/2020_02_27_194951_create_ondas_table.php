@@ -18,7 +18,7 @@ class CreateOndasTable extends Migration
             $table->bigInteger('id_baterias')->unsigned();
             $table->foreign('id_baterias')->references('id')->on('baterias')->onDelete('cascade');           
             $table->bigInteger('id_surfistas')->unsigned();
-            $table->foreign('id_surfistas')->references('numero')->on('surfistas')->onDelete('cascade');
+            $table->foreign('id_surfistas')->references('id')->on('surfistas')->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -5,17 +5,22 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SurfistaComponent } from './surfista/surfista.component';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BateriaComponent } from './bateria/bateria.component';
+import { OndaComponent } from './onda/onda.component';
 @NgModule({
   declarations: [
     AppComponent,
-    SurfistaComponent
+    SurfistaComponent,
+    BateriaComponent,
+    OndaComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
