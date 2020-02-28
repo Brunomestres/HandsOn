@@ -17,9 +17,7 @@ class SurfistaController extends Controller
      */
     public function index()
     {
-        $result = Surfista::all();
-
-        return \Response::json($result);
+        
     }
 
     /**
@@ -38,9 +36,19 @@ class SurfistaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Surfista $surfista)
     {
-        //
+        $dados = $request->all();
+
+        $save = $surfista->create([
+            'nome' => $dados['nome'],
+            'pais' => $dados['pais']
+        ]);
+        
+        // if($save) 
+
+
+        return \Response::json($save);
     }
 
     /**

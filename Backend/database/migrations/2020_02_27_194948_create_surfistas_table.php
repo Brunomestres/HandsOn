@@ -17,7 +17,7 @@ class CreateSurfistasTable extends Migration
             $table->bigIncrements('numero');
             $table->string('nome');
             $table->string('pais');
-            $table->bigInteger('id_baterias')->unsigned();
+            $table->bigInteger('id_baterias')->unsigned()->nullable(true);
             $table->foreign('id_baterias')->references('id')->on('baterias')->onDelete('Cascade');
             $table->timestamps();
         });
