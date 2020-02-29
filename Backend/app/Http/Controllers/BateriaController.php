@@ -14,7 +14,9 @@ class BateriaController extends Controller
      */
     public function index()
     {
-        //
+        $result = Bateria::all();
+
+        return response()->json($result);
     }
 
     /**
@@ -33,9 +35,10 @@ class BateriaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Bateria $bateria)
     {
-        //
+        $save = $bateria->surfistas()->attach(1);
+        return response()->json($save);
     }
 
     /**

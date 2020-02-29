@@ -4,19 +4,18 @@
     <div class="card-body">
       <table class="table table-striped">
         <thead>
-          <tr>
+          <tr >
             <th scope="col">#</th>
-            <th scope="col">First</th>
+            <th scope="col"></th>
             <th scope="col">Last</th>
-            <th scope="col">Handle</th>
+            
             
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
+          <tr *ngFor="let surfista of surfistas">
+            <th scope="row">{{surfista.id}}</th>
+            <td>{{surfista.nome}}</td>
             <td><a type="button" class="btn btn-info" routerLink="/ondas/1">Adicionar Onda</a>
             <a type="button" class="btn btn-warning">Obter Vencedor</a></td>
           </tr>

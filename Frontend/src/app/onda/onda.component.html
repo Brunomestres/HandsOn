@@ -1,14 +1,9 @@
 
 <form [formGroup]="myForm">
     <div class="form-row"  >
-      <div class="col-md-4 mb-3">
-        <label for="validationCustom01">Bateria</label>
-        <input type="text" class="form-control" id="validationCustom01"required>
-        
-      </div>
-      <div class="col-md-4 mb-3">
+      <div class="col-md-3 mb-3">
         <label for="validationCustom02">Bateria</label>
-        <input type="text" class="form-control" value="{{userId}}" id="validationCustom02" required>
+        <input type="text" class="form-control" value="{{userId}}" id="validationCustom02" readonly>
       </div>
     </div>
     <div class="form-row">
@@ -16,7 +11,7 @@
         <label for="validationCustom04">Surfista</label>
         <select class="custom-select" id="validationCustom04" required>
           <option selected disabled value=""></option>
-          <option>...</option>
+          <option *ngFor="let surfista of surfistas">{{ surfista.nome }}</option>
         </select>
       </div>
       
