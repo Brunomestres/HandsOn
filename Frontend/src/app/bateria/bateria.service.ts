@@ -17,7 +17,7 @@ export class BateriaService {
   }
 
   create(surfista){
-    return this.http.post(this.API,surfista).subscribe(console.log);
+    return this.http.post(this.API+'baterias',surfista).subscribe(console.log);
   }
   delete(id){
     return this.http.delete(this.API+'/'+id).subscribe(console.log);

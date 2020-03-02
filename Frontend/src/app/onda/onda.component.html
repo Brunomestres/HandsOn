@@ -1,21 +1,21 @@
 
-<form [formGroup]="myForm">
+<form [formGroup]="form">
     <div class="form-row"  >
       <div class="col-md-3 mb-3">
-        <label for="validationCustom02">Bateria</label>
-        <input type="text" class="form-control" value="{{userId}}" id="validationCustom02" readonly>
+        <label for="">Bateria</label>
+        <input type="text" class="form-control" formControlName="bateria" value="{{userId}}" readonly>
       </div>
     </div>
     <div class="form-row">
       <div class="col-md-3 mb-3">
-        <label for="validationCustom04">Surfista</label>
-        <select class="custom-select" id="validationCustom04" required>
-          <option selected disabled value=""></option>
-          <option *ngFor="let surfista of surfistas">{{ surfista.nome }}</option>
+        <label for="">Surfista</label>
+        <select class="custom-select"  formControlName="surfista" id=""  required>
+          <option selected disabled></option>
+          <option *ngFor="let surfista of surfistas" value="{{ surfista.id }}">{{ surfista.nome }}</option>
         </select>
       </div>
       
     </div>
     
-    <button class="btn btn-primary" type="submit">Submit form</button>
+    <button class="btn btn-primary" type="submit" (click)="onSubmit()">Criar</button>
   </form>

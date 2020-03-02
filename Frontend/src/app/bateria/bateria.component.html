@@ -12,7 +12,7 @@
         <tbody>
           <tr *ngFor="let bateria of baterias">
             <th scope="row">{{bateria.id}}</th>
-            <td><a type="button" class="btn btn-info" routerLink="/ondas/1">Adicionar Onda</a>
+            <td><a type="button" class="btn btn-info" [routerLink]="['/ondas',bateria.id]">Adicionar Onda</a>
             <a type="button" class="btn btn-warning">Obter Vencedor</a>
             <a type="button" class="btn btn-danger" [routerLink]="['/bateria',bateria.id]">Ver Bateria</a></td>
           </tr>
@@ -34,18 +34,18 @@
       <div class="form-group">
         <div class="col-4 my-1">
           <label class="mr-sm-2" for="">Surfista 1</label>
-          <select class="custom-select mr-sm-1" id="">
+          <select class="custom-select mr-sm-1" formControlName="surfista1" id="">
             <option selected> </option>
-            <option *ngFor="let surfista of surfistas" value="{{surfista.id}}">{{surfista.nome}}</option>  
+            <option *ngFor="let surfista of surfistas"  value="{{surfista.id}}">{{surfista.nome}}</option>  
           </select>
         </div>
       </div>
       <div class="form-group">
         <div class="col-4 my-1">
           <label class="mr-sm-2" for="">Surfista 2</label>
-          <select class="custom-select mr-sm-1" id="">
+          <select class="custom-select mr-sm-1" formControlName="surfista2" id="">
             <option selected> </option>
-            <option *ngFor="let surfista of surfistas" value="{{surfista.id}}">{{surfista.nome}}</option>  
+            <option *ngFor="let surfista of surfistas"  value="{{surfista.id}}">{{surfista.nome}}</option>  
           </select>
         </div>
       </div>

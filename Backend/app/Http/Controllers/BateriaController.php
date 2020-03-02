@@ -38,11 +38,14 @@ class BateriaController extends Controller
      */
     public function store(Request $request, Bateria $bateria)
     {
-        $bateria->save();
+        $req = $request->all();
+        $save = $bateria->create();
 
-        $result = $bateria->find(4);
-        $save = $result->surfistas()->attach([1]);
-        return response()->json($save);
+        $result = $bateria->find($save->id);
+
+        $data = $result->surfistas()->attach([$req['surfista1']]);
+        $data = $result->surfistas()->attach([$req['surfista2']]);
+        return response()->json($data);
     }
 
     /**

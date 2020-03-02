@@ -41,7 +41,7 @@ class NotaController extends Controller
             'nota_parcial1' => $data['nota1'],
             'nota_parcial2' => $data['nota2'],
             'nota_parcial3' => $data['nota3'],
-            'id_onda' => $data['onda']
+            'id_onda' => 
         ]);
 
         return response()->json($save);
