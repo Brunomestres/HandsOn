@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Bateria;
+use App\Surfista;
 use Illuminate\Http\Request;
 
 class BateriaController extends Controller
@@ -12,11 +13,11 @@ class BateriaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Bateria $bateria)
     {
-        $result = Bateria::all();
+        $data = $bateria->all();
 
-        return response()->json($result);
+        return response()->json($data);
     }
 
     /**
@@ -37,7 +38,10 @@ class BateriaController extends Controller
      */
     public function store(Request $request, Bateria $bateria)
     {
-        $save = $bateria->surfistas()->attach(1);
+        $bateria->save();
+
+        $result = $bateria->find(4);
+        $save = $result->surfistas()->attach([1]);
         return response()->json($save);
     }
 
@@ -47,9 +51,13 @@ class BateriaController extends Controller
      * @param  \App\Bateria  $bateria
      * @return \Illuminate\Http\Response
      */
-    public function show(Bateria $bateria)
+    public function show($id)
     {
-        //
+        // $result = Bateria::has('surfistas')->get();
+        $result = Bateria::find($id);
+        $data = $result->surfistas()->get();
+
+        return response()->json($data);
     }
 
     /**

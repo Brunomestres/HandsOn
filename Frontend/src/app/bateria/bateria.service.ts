@@ -13,7 +13,7 @@ export class BateriaService {
   constructor( private http: HttpClient) { }
 
   listar(){
-    return this.http.get(this.API+'surfista');
+    return this.http.get(this.API+'baterias');
   }
 
   create(surfista){
@@ -21,5 +21,8 @@ export class BateriaService {
   }
   delete(id){
     return this.http.delete(this.API+'/'+id).subscribe(console.log);
+  }
+  listarSurfistas(){
+    return this.http.get(this.API+'surfista');
   }
 }

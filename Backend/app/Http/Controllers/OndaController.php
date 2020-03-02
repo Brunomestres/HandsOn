@@ -12,9 +12,10 @@ class OndaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Onda $onda)
     {
-        //
+        $data = $onda->all();
+        return response()->json($data);
     }
 
     /**
@@ -33,9 +34,17 @@ class OndaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Onda $onda)
     {
-        //
+        $data = $request->all();
+
+        $save = $onda->create([
+            'id_surfistas' => $data['surfista'],
+            'id_baterias' => $data['bateria']
+        ]);
+
+        return response()->json($save);
+
     }
 
     /**

@@ -12,9 +12,10 @@ class NotaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Nota $nota)
     {
-        //
+        $data = $nota->all();
+        return response()->json($data);
     }
 
     /**
@@ -24,7 +25,7 @@ class NotaController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -33,9 +34,17 @@ class NotaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
+    public function store(Request $request,Nota $nota)
+    {   
+        $data = $request->all();
+        $save = $nota->create([
+            'nota_parcial1' => $data['nota1'],
+            'nota_parcial2' => $data['nota2'],
+            'nota_parcial3' => $data['nota3'],
+            'id_onda' => $data['onda']
+        ]);
+
+        return response()->json($save);
     }
 
     /**

@@ -10,6 +10,7 @@ export class BateriaComponent implements OnInit {
   modalRef: BsModalRef;
   
   surfistas: any = [];
+  baterias: any = [];
 
   constructor(private modalService: BsModalService, private service: BateriaService) { }
   openModal(modalBateria: TemplateRef<any>) {
@@ -17,7 +18,8 @@ export class BateriaComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.service.listar().subscribe(dados => this.surfistas = dados);
+    this.service.listar().subscribe(dados => this.baterias = dados);
+    this.service.listarSurfistas().subscribe(dados => this.surfistas = dados);
   }
 
 }

@@ -5,23 +5,52 @@
       <table class="table table-striped">
         <thead>
           <tr >
-            <th scope="col">#</th>
-            <th scope="col"></th>
-            <th scope="col">Last</th>
-            
-            
+            <th scope="col">Número</th>
+            <th scope="col">Ação</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let surfista of surfistas">
-            <th scope="row">{{surfista.id}}</th>
-            <td>{{surfista.nome}}</td>
+          <tr *ngFor="let bateria of baterias">
+            <th scope="row">{{bateria.id}}</th>
             <td><a type="button" class="btn btn-info" routerLink="/ondas/1">Adicionar Onda</a>
-            <a type="button" class="btn btn-warning">Obter Vencedor</a></td>
+            <a type="button" class="btn btn-warning">Obter Vencedor</a>
+            <a type="button" class="btn btn-danger" [routerLink]="['/bateria',bateria.id]">Ver Bateria</a></td>
           </tr>
         </tbody>
       </table>
-      <button type="button" class="btn btn-success">Criar Bateria</button>
+      <button type="button" class="btn btn-success" (click)="openModal(template)">Criar Bateria</button>
     </div>
 </div>
 
+<ng-template #template>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Cadastro de baterias</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="form">
+      <div class="form-group">
+        <div class="col-4 my-1">
+          <label class="mr-sm-2" for="">Surfista 1</label>
+          <select class="custom-select mr-sm-1" id="">
+            <option selected> </option>
+            <option *ngFor="let surfista of surfistas" value="{{surfista.id}}">{{surfista.nome}}</option>  
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-4 my-1">
+          <label class="mr-sm-2" for="">Surfista 2</label>
+          <select class="custom-select mr-sm-1" id="">
+            <option selected> </option>
+            <option *ngFor="let surfista of surfistas" value="{{surfista.id}}">{{surfista.nome}}</option>  
+          </select>
+        </div>
+      </div>
+      
+      <button type="submit" (click)="onSubmit()" class="btn btn-primary">Criar</button>
+    </form>
+  </div>
+</ng-template>

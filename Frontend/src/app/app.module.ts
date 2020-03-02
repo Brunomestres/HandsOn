@@ -8,12 +8,14 @@ import { SurfistaComponent } from './surfista/surfista.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BateriaComponent } from './bateria/bateria.component';
 import { OndaComponent } from './onda/onda.component';
+import { SurfistasToBateriaComponent } from './surfistas-to-bateria/surfistas-to-bateria.component';
 @NgModule({
   declarations: [
     AppComponent,
     SurfistaComponent,
     BateriaComponent,
-    OndaComponent
+    OndaComponent,
+    SurfistasToBateriaComponent
   ],
   imports: [
     BrowserModule,
