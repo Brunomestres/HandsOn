@@ -19,7 +19,11 @@
 
 ```.env``` mudar o login e senha do banco caso necessario
 
-```php artisan migrate``` Gera as tabelas do banco de dados  
+```php artisan migrate``` Gera as tabelas do banco de   dados    
+
+```php artisan key:generate``` Cria uma chave de autenticação no arquivo .env
+
+```php artisan serve```  inicia o projeto
 
 # INSTALAÇÃO E COMANDOS (FRONTEND)
 

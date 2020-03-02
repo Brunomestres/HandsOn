@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Nota;
+use App\Onda;
 use Illuminate\Http\Request;
 
 class NotaController extends Controller
@@ -34,15 +35,17 @@ class NotaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request,Nota $nota)
+    public function store(Request $request,Nota $nota, Onda $onda)
     {   
         $data = $request->all();
         $save = $nota->create([
             'nota_parcial1' => $data['nota1'],
             'nota_parcial2' => $data['nota2'],
             'nota_parcial3' => $data['nota3'],
-            'id_onda' => 
+            'id_onda' =>  $data['onda']
         ]);
+
+        $onda->where('id',$data['onda'])->update(['status' => 1]);
 
         return response()->json($save);
     }

@@ -10,6 +10,7 @@ import { BateriaComponent } from './bateria/bateria.component';
 import { OndaComponent } from './onda/onda.component';
 import { SurfistasToBateriaComponent } from './surfistas-to-bateria/surfistas-to-bateria.component';
 import { FormNotaComponent } from './form-nota/form-nota.component';
+import { ListOndaComponent } from './list-onda/list-onda.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,7 +18,8 @@ import { FormNotaComponent } from './form-nota/form-nota.component';
     BateriaComponent,
     OndaComponent,
     SurfistasToBateriaComponent,
-    FormNotaComponent
+    FormNotaComponent,
+    ListOndaComponent
   ],
   imports: [
     BrowserModule,

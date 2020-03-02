@@ -15,6 +15,7 @@ class CreateBateriasTable extends Migration
     {
         Schema::create('baterias', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->integer('status')->default(0);
             $table->timestamps();
         });
     }

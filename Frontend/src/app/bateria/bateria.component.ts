@@ -2,6 +2,7 @@ import { Component, OnInit, TemplateRef } from '@angular/core';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { BateriaService } from './bateria.service';
 import { FormGroup, FormBuilder } from '@angular/forms';
+import { Location } from '@angular/common';
 @Component({
   selector: 'app-bateria',
   templateUrl: './bateria.component.html',
@@ -13,7 +14,7 @@ export class BateriaComponent implements OnInit {
   surfistas: any = [];
   baterias: any = [];
   
-  constructor(private modalService: BsModalService, private service: BateriaService, private fb:FormBuilder) { }
+  constructor(private modalService: BsModalService, private service: BateriaService, private fb:FormBuilder, private location: Location) { }
   openModal(modalBateria: TemplateRef<any>) {
     this.modalRef = this.modalService.show(modalBateria);
 
@@ -34,6 +35,8 @@ export class BateriaComponent implements OnInit {
   {
     console.log(this.form.value)
     this.service.create(this.form.value);
-
+    this.modalRef.hide();
   }
+
+
 }
