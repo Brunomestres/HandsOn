@@ -14,10 +14,13 @@
     * Bootstrap 4  
     * Angular 8  
 # INSTALAÇÃO E COMANDOS (BACKEND)
+Navegue  pelo terminal até a pasta Backend e faça os seguintes passos:
 
-```composer install``` instalar as dependencias do projeto
+```composer install``` instalar as dependencias do projeto  
 
-```.env``` mudar o login e senha do banco caso necessario
+Copiar arquivo ``` .env.example```  e nomear como ```.env``` 
+
+Abrir o arquivo ```.env``` em um editor e mudar o login e senha do banco caso necessario
 
 ```php artisan migrate``` Gera as tabelas do banco de   dados    
 
@@ -26,6 +29,7 @@
 ```php artisan serve```  inicia o projeto
 
 # INSTALAÇÃO E COMANDOS (FRONTEND)
+Navegue  pelo terminal até a pasta Frontend e faça os seguintes passos:  
 
 ```npm install``` instalar as dependencias do projeto
 
