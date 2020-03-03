@@ -14,8 +14,10 @@ export class FormNotaComponent implements OnInit {
     this.route.params.subscribe(params => this.userId = params['id']);
    }
   form: FormGroup;
+  surfista;
+
   ngOnInit() {
-    
+    this.service.listar(this.userId).subscribe(dados => this.surfista = dados);
     this.form = this.fb.group({
       nota1:[null],
       nota2:[null],

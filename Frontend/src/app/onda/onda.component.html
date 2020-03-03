@@ -11,7 +11,9 @@
         <label for="">Surfista</label>
         <select class="custom-select"  formControlName="surfista" id=""  required>
           <option selected disabled></option>
-          <option *ngFor="let surfista of surfistas" value="{{ surfista.id }}">{{ surfista.nome }}</option>
+          <ng-container *ngFor="let surfista of surfistas" >
+            <option value="{{ surfista.nome }}">{{ surfista.nome }}</option>
+          </ng-container>
         </select>
       </div>
       

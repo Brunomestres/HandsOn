@@ -11,17 +11,18 @@
         </thead>
         <tbody>
           <tr *ngFor="let bateria of baterias">
-            <th scope="row">{{bateria.id}}</th>
-            <td><a type="button" class="btn btn-info" [routerLink]="['/ondas',bateria.id]">Adicionar Onda</a>
-            <a type="button" class="btn btn-warning">Obter Vencedor</a>
-            <a type="button" class="btn btn-danger" [routerLink]="['/bateria',bateria.id]">Ver Bateria</a></td>
+              <ng-container *ngIf="bateria.status == 0">
+              <th scope="row">{{bateria.id}}</th>
+              <td><a type="button" class="btn btn-info" [routerLink]="['/ondas/',bateria.id]">Adicionar Onda</a></td>
+              <td><a type="button" class="btn btn-danger" [routerLink]="['/bateria',bateria.id]">Ver Bateria</a></td>
+              <td><a type="button" class="btn btn-warning" [routerLink]="['/winner',bateria.id]">Obter Vencedor</a></td>
+            </ng-container>
           </tr>
         </tbody>
       </table>
       <button type="button" class="btn btn-success" (click)="openModal(template)">Criar Bateria</button>
     </div>
 </div>
-
 <ng-template #template>
   <div class="modal-header">
     <h4 class="modal-title pull-left">Cadastro de baterias</h4>

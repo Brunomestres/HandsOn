@@ -25,8 +25,8 @@ export class SurfistaComponent implements OnInit {
   
   onSubmit()
   {
-    console.log(this.form.value)
     this.service.create(this.form.value);
+    this.modalRef.hide();
 
   }
 

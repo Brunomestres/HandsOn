@@ -16,9 +16,8 @@ class CreateOndasTable extends Migration
         Schema::create('ondas', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('id_baterias')->unsigned();
-            $table->foreign('id_baterias')->references('id')->on('baterias')->onDelete('cascade');           
-            $table->bigInteger('id_surfistas')->unsigned();
-            $table->foreign('id_surfistas')->references('id')->on('surfistas')->onDelete('cascade');
+            $table->string('surfista');
+            $table->foreign('id_baterias')->references('id')->on('baterias')->onDelete('cascade');
             $table->integer('status')->default(0);
             $table->timestamps();
         });

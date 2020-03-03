@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Bateria;
+use App\Nota;
 use App\Surfista;
+use App\Onda;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 
 class BateriaController extends Controller
 {
@@ -95,5 +98,77 @@ class BateriaController extends Controller
     public function destroy(Bateria $bateria)
     {
         //
+    }
+    
+    
+    public function winner($id)
+    {
+        $i = 0;
+        $bateria = new Bateria();
+
+        $result = $bateria->find($id); 
+
+        $ondas =  $result->ondas()->get();
+
+        $data = [];
+
+        $notas = [];
+        
+        foreach($ondas as $onda)
+        {
+            $notas[$i] = $this->queryNota($onda->id);
+
+            $i++;
+        }
+
+        $i = 0;   
+        foreach($notas as $nota)
+        {
+            $data[$i] = $this->average($nota);
+            
+            $i++;
+        }
+
+
+        if($data[0] > $data[1])
+        {
+            $save = $data[0];
+        }else if($data[0] < $data[1]){
+            $save = $data[1];
+        }else{
+            $save = 'Empate';
+        }
+        
+        
+        return response()->json($save);
+    }
+
+
+    
+    
+    function queryNota($id)
+    {
+        $data = [];
+        $result = Onda::find($id);
+
+        $data['nome'] = $result->surfista;
+        $data['nota'] = $result->nota()->first();
+
+        return $data; 
+
+    }
+
+
+    function average($nota)
+    {
+        if(!$nota) return false;
+        $data['nota'] = ($nota['nota']->nota_parcial1 + $nota['nota']->nota_parcial2 + $nota['nota']->nota_parcial3) / 3; 
+        $data['nome'] = $nota['nome'];
+        return $data;
+    }
+
+    function makerWinner($data)
+    {
+
     }
 }

@@ -4,16 +4,11 @@ import { take } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
-export class FormNotaService {
+export class VencedorService {
   private readonly API = 'http://localhost:8000/';
   constructor(private http: HttpClient) { }
 
-
-  create(notas){
-    return this.http.post(this.API+'notas',notas).subscribe(console.log);
-  }
-
   listar(id){
-    return this.http.get(this.API+'ondas/'+id);
+    return this.http.get(this.API+'winner/'+id);
   }
 }

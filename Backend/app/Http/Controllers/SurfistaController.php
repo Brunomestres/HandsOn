@@ -50,7 +50,7 @@ class SurfistaController extends Controller
         
 
 
-        return \Response::json($save);
+        return response()->json($save);
     }
 
     /**

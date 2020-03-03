@@ -11,6 +11,7 @@ import { OndaComponent } from './onda/onda.component';
 import { SurfistasToBateriaComponent } from './surfistas-to-bateria/surfistas-to-bateria.component';
 import { FormNotaComponent } from './form-nota/form-nota.component';
 import { ListOndaComponent } from './list-onda/list-onda.component';
+import { VencedorComponent } from './vencedor/vencedor.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +20,8 @@ import { ListOndaComponent } from './list-onda/list-onda.component';
     OndaComponent,
     SurfistasToBateriaComponent,
     FormNotaComponent,
-    ListOndaComponent
+    ListOndaComponent,
+    VencedorComponent
   ],
   imports: [
     BrowserModule,

@@ -13,4 +13,10 @@ class Bateria extends Model
     {
         return $this->belongsToMany('App\Surfista','surfistas_baterias','id_bateria','id_surfista');
     }
+
+
+    public function ondas()
+    {
+        return $this->hasMany('App\Onda','id_baterias');
+    }
 }

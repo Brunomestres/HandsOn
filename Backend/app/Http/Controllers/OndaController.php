@@ -39,7 +39,7 @@ class OndaController extends Controller
         $data = $request->all();
 
         $save = $onda->create([
-            'id_surfistas' => $data['surfista'],
+            'surfista' => $data['surfista'],
             'id_baterias' => $data['bateria']
         ]);
 
@@ -53,9 +53,14 @@ class OndaController extends Controller
      * @param  \App\Onda  $onda
      * @return \Illuminate\Http\Response
      */
-    public function show(Onda $onda)
+    public function show($id)
     {
-        //
+        $onda = new Onda();
+        $result = $onda->find($id);
+
+        $data = $result->surfistas()->get();
+
+        return response()->json($data[0]->nome);
     }
 
     /**

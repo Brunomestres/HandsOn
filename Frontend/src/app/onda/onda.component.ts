@@ -21,7 +21,7 @@ export class OndaComponent implements OnInit {
 
     this.form = this.fb.group({
       bateria:[this.userId],
-      surfista:[null]
+      surfista:[null],
     });
   }
   onSubmit(){

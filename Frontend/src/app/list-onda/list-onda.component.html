@@ -6,7 +6,6 @@
         <thead>
           <tr>
             <th scope="col">Número</th>
-            <th scope="col">Nome</th>
             <th scope="col">Ação</th>
           </tr>
         </thead>
@@ -14,8 +13,6 @@
           <tr *ngFor="let onda of ondas">
             <ng-container *ngIf="onda.status == 0">
               <th scope="row">{{ onda.id }}</th>
-              <td> {{ onda.status}}</td>
-            
             <td><button type="button" class="btn btn-primary"[routerLink] = "['/nota',onda.id]">Dar Nota</button></td>
           </ng-container>
           </tr>
@@ -31,15 +28,12 @@
         <thead>
           <tr>
             <th scope="col">Número</th>
-            <th scope="col">Nome</th>
-            <th scope="col">Ação</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let onda of ondas">
             <ng-container *ngIf="onda.status == 1">
               <th scope="row">{{ onda.id }}</th>
-              <td> {{ onda.status}}</td>
           </ng-container>
           </tr>
         </tbody>
